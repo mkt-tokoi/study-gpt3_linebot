@@ -31,6 +31,7 @@ def handle_message(event: MessageEvent):
             temperature=0.9, # ランダムさ。創造的にするには0.9、答えがある場合は0推奨。top_pと同時変更は非推奨（デフォルト:1）
             stop='.')
         r_text = response['choices'][0]['text']
+        r_text = r_text.strip()
         token_usage = response['usage']['total_tokens']
         token_remain = 4000 - token_usage
 
